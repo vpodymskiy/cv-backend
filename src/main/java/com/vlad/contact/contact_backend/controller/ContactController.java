@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/contact")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = {"https://cv-ruddy-three.vercel.app", "http://localhost:3000"})
 @RequiredArgsConstructor
 public class ContactController {
 
