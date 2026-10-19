@@ -1,4 +1,4 @@
-FROM eclipse-temurin:24-jdk AS build
+FROM eclipse-temurin:25-jdk AS build
 
 WORKDIR /app
 
@@ -6,7 +6,7 @@ COPY . .
 
 RUN ./gradlew build -x test
 
-FROM eclipse-temurin:24-jdk
+FROM eclipse-temurin:25-jre
 
 WORKDIR /app
 
