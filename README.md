@@ -20,6 +20,7 @@ Java 24 · Spring Boot 3.5 · Spring Web · Spring Mail · Bean Validation · Lo
 ```
 
 - `200 OK`: el correo se ha enviado.
+- `400 Bad Request`: datos no válidos (devuelve los errores por campo) o JSON mal formado.
 - `500 Internal Server Error`: error al enviar el correo.
 
 ## Estructura
@@ -27,8 +28,12 @@ Java 24 · Spring Boot 3.5 · Spring Web · Spring Mail · Bean Validation · Lo
 ```
 src/main/java/com/vlad/contact/contact_backend
 ├── ContactBackendApplication.java
-├── controller/ContactController.java   # recibe la petición POST /contact
-└── service/EmailService.java           # envía el correo con Spring Mail
+├── controller/ContactController.java          # recibe la petición POST /contact
+├── dto/ContactRequest.java                    # datos del formulario con validación
+├── dto/ApiResponse.java                       # formato de las respuestas JSON
+├── exception/GlobalExceptionHandler.java      # 400 / 500 con mensajes claros
+├── exception/EmailSendingException.java
+└── service/EmailService.java                  # envía el correo con Spring Mail
 ```
 
 ## Cómo ejecutar
